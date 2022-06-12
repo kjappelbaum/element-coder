@@ -15,11 +15,24 @@ later, but that will cause problems--the code will get executed twice:
 
 
 import click
+from .encode import encode
+from .decode import decode
+from .data.coding_data import _PROPERTY_KEYS
 
-__all__ = ("cli",)
+__all__ = ("encode_cli", "decode_cli")
 
 
-@click.group()
-@click.version_option()
-def cli():
+@click.command("cli")
+@click.argument("element", type=str)
+@click.option("--property", type=click.Choice(_PROPERTY_KEYS), default="mod_pettifor")
+def encode_cli(element, property):
     """CLI for element_coder."""
+    click.echo(encode(element, property))
+
+
+@click.command("cli")
+@click.argument("encoding", type=click.FLOAT, nargs=-1)
+@click.option("--property", type=click.Choice(_PROPERTY_KEYS), default="mod_pettifor")
+def decode_cli(encoding, property):
+    """CLI for element_coder."""
+    click.echo(decode(encoding, property))

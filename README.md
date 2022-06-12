@@ -48,15 +48,18 @@ decode(encode('Si', 'mod_pettifor'), 'mod_pettifor')
 
 ### Command Line Interface
 
-The element_coder command line tool is automatically installed. It can
-be used from the shell with the `--help` flag to show all subcommands:
+The `element_coder.encode` and `element_coder.decode` command line tools are automatically installed. They can
+be used from the shell with the `--help` flag to show help:
 
 ```shell
-$ element_coder --help
+$ element_coder.encode H
+102
 ```
 
-> TODO show the most useful thing the CLI does! The CLI will have documentation auto-generated
-by `sphinx`.
+```shell
+$ element_coder.decode 102
+H
+```
 
 ## 🚀 Installation
 
