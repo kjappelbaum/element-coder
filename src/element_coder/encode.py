@@ -1,6 +1,9 @@
-from pymatgen.core import Element
+"""Numerically encode an Element"""
 from typing import Union
+
 import numpy as np
+from pymatgen.core import Element
+
 from .data.coding_data import get_coding_dict
 
 __all__ = ("encode",)

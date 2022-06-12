@@ -1,15 +1,17 @@
-from subprocess import call
-from typing import Union
+"""Decode an elemental encoding"""
+from typing import Callable, Union
+
 import numpy as np
-from .data.coding_data import get_coding_dict
 from loguru import logger
 from scipy.spatial.distance import cdist
+
+from .data.coding_data import get_coding_dict
 
 
 def decode(
     encoding: Union[int, float, np.ndarray, list, tuple],
     property: str,
-    metric: Union[str, callable] = "euclidean",
+    metric: Union[str, Callable] = "euclidean",
 ) -> str:
     """Decode an elemental encoding
 

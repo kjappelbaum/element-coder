@@ -15,9 +15,10 @@ later, but that will cause problems--the code will get executed twice:
 
 
 import click
-from .encode import encode
-from .decode import decode
+
 from .data.coding_data import _PROPERTY_KEYS
+from .decode import decode
+from .encode import encode
 
 __all__ = ("encode_cli", "decode_cli")
 

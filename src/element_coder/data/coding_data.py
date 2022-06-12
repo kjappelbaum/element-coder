@@ -1,11 +1,12 @@
 """We represent each possible elemental encoding as a `sciris` dict. This allows for more convenient bi-directional lookup.
 """
 
-from loguru import logger
-from difflib import get_close_matches
 import os
+from difflib import get_close_matches
 from functools import lru_cache
+
 import sciris as sc
+from loguru import logger
 
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 _CODING_DATA_DIR = os.path.join(_THIS_DIR, "raw")

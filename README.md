@@ -34,16 +34,13 @@
 
 Encode chemical elements numerically and decode numerical representations of elements.
 
-
-
-
 ## 💪 Getting Started
 
 ```python
 from element_coder import encode, decode 
 
 decode(encode('Si', 'mod_pettifor'), 'mod_pettifor')
-> Element('Si')
+>'Si'
 ```
 
 ### Command Line Interface
@@ -60,6 +57,13 @@ $ element_coder.encode H
 $ element_coder.decode 102
 H
 ```
+
+also works for vector-valued encodings
+
+```shell
+$ element_coder.decode 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 --property cgcnn
+H
+``
 
 ## 🚀 Installation
 
