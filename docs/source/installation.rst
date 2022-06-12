@@ -1,4 +1,4 @@
-Installation
+tInstallation
 ============
 The most recent release can be installed from
 `PyPI <https://pypi.org/project/element_coder>`_ with:
