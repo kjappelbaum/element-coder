@@ -58,6 +58,7 @@ modindex_common_prefix = ["element_coder."]
 extensions = [
     "sphinx.ext.autosummary",
     "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon",  
     "sphinx.ext.coverage",
     "sphinx.ext.intersphinx",
     "sphinx.ext.todo",
