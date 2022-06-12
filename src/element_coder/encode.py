@@ -1,4 +1,4 @@
-"""Numerically encode an Element"""
+"""Numerically encode an Element."""
 from typing import Union
 
 import numpy as np

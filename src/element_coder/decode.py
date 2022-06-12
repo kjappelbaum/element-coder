@@ -1,4 +1,4 @@
-"""Decode an elemental encoding"""
+"""Decode an elemental encoding."""
 from typing import Callable, Union
 
 import numpy as np
@@ -13,15 +13,18 @@ def decode(
     property: str,
     metric: Union[str, Callable] = "euclidean",
 ) -> str:
-    """Decode an elemental encoding
+    """Decode an elemental encoding.
 
     Args:
         encoding (Union[int, float, np.ndarray]): Numerical encoding of an element
         property (str): Property that was used for encoding, e.g. "mod_pettifor"
         metric (Union[str, callable] optional): Metric to measure distance between (noisy) input encoding
             and tabulated encodings.
-            If a string, the distance function can be 'braycurtis', 'canberra', 'chebyshev', 'cityblock', 'correlation', 'cosine', 'dice', 'euclidean', 'hamming', 'jaccard', 'jensenshannon', 'kulsinski', 'kulczynski1', 'mahalanobis', 'matching', 'minkowski', 'rogerstanimoto', 'russellrao', 'seuclidean', 'sokalmichener', 'sokalsneath', 'sqeuclidean', 'yule'.
-            Defaults to "euclidean".
+            If a string, the distance function can be 'braycurtis', 'canberra', 'chebyshev',
+            'cityblock', 'correlation', 'cosine', 'dice', 'euclidean', 'hamming', 'jaccard',
+            'jensenshannon', 'kulsinski', 'kulczynski1', 'mahalanobis', 'matching', 'minkowski',
+            'rogerstanimoto', 'russellrao', 'seuclidean', 'sokalmichener', 'sokalsneath',
+            'sqeuclidean', 'yule'. Defaults to "euclidean".
 
     Returns:
         str: Element symbol
