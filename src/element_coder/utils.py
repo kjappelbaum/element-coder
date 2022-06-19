@@ -1,5 +1,8 @@
+"""Utilities for `element_coder`."""
 from typing import Iterable, Union
+
 from pymatgen.core import Element
+
 from .encode import encode
 
 
