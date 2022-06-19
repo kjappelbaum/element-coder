@@ -9,11 +9,12 @@ from .data.coding_data import get_coding_dict
 __all__ = ("encode",)
 
 
-def encode(element: Union[Element, str], property: str) -> Union[float, int, np.ndarray]:
+def encode(element: Union[Element, str, int], property: str) -> Union[float, int, np.ndarray]:
     """Numerically encode an element.
 
     Args:
-        element (Union[Element, str]): Input element, e.g. "Fe" or Element("Fe")
+        element (Union[Element, str, int]): Input element, e.g. "Fe",  or Element("Fe"),
+            or atomic number (Z) as int.
         property (str): Property that was used for encoding, e.g. "mod_pettifor"
 
     Raises:
@@ -26,6 +27,8 @@ def encode(element: Union[Element, str], property: str) -> Union[float, int, np.
         >>> encode("Fe", "mod_pettifor")
         70
     """
+    if isinstance(element, int):
+        element = Element.from_Z(element).symbol
     if isinstance(element, Element):
         element = element.symbol
 
