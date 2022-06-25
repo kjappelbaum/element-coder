@@ -37,14 +37,15 @@ def test_encode_noisy(element, property):
 
 
 def test_encode_many():
+    """Make sure that the encode_many() method works as exepected, also with mixed types."""
     encoding_a = encode_many(["H", "Li"], "mod_pettifor")
     assert encoding_a[0] == 102
     assert encoding_a[1] == 11
 
     encoding_b = encode_many([1, "Li"], "mod_pettifor")
-    assert encoding_a[0] == 102
-    assert encoding_a[1] == 11
+    assert encoding_b[0] == 102
+    assert encoding_b[1] == 11
 
-    encoding_b = encode_many([1, 3], "mod_pettifor")
-    assert encoding_a[0] == 102
-    assert encoding_a[1] == 11
+    encoding_c = encode_many([1, 3], "mod_pettifor")
+    assert encoding_c[0] == 102
+    assert encoding_c[1] == 11
