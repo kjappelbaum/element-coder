@@ -1,5 +1,5 @@
 """Numerically encode an Element."""
-from typing import Union, Iterable
+from typing import Iterable, List, Union
 
 import numpy as np
 from pymatgen.core import Element
@@ -14,6 +14,11 @@ def _get_element_symbol(element):
         element = Element.from_Z(element).symbol
     if isinstance(element, Element):
         element = element.symbol
+    if not isinstance(element, str):
+        raise ValueError(
+            f"`element` must be a string or a `pymatgen` `Element`, not {type(element)}"
+        )
+
     return element
 
 
@@ -44,7 +49,7 @@ def encode(element: Union[Element, str, int], property: str) -> Union[float, int
     return get_coding_dict(property)[element]
 
 
-def encode_many(elements: Iterable[Union[Element, str, int]], property: str) -> np.ndarray:
+def encode_many(elements: Iterable[Union[Element, str, int]], property: str) -> List:
     """Numerically encode a collection of elements.
 
     Note, however, that this method brings the largest computational benefits if
@@ -57,10 +62,10 @@ def encode_many(elements: Iterable[Union[Element, str, int]], property: str) -> 
         property (str): Property that was used for encoding, e.g. "mod_pettifor"
 
     Raises:
-        ValueError: If element is not of type `str` or `pymatgen.core.Element`
+        ValueError: If element is not of type `str` or `pymatgen.core.Element` # noqa: DAR402
 
     Returns:
-        np.ndarray: Numerical encoding of elements.
+        List: Numerical encoding of elements.
 
     Examples:
         >>> encode_many(["Fe", 'H'], "mod_pettifor")
