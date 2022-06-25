@@ -4,7 +4,7 @@ from typing import Iterable
 import numpy as np
 import pytest
 
-from element_coder import decode, encode
+from element_coder import decode, encode, encode_many
 from element_coder.data.coding_data import _PROPERTY_KEYS
 
 np.random.seed(0)
@@ -34,3 +34,17 @@ def test_encode_noisy(element, property):
 
     decoded = decode(encoding, property)
     assert decoded == element
+
+
+def test_encode_many():
+    encoding_a = encode_many(["H", "Li"], "mod_pettifor")
+    assert encoding_a[0] == 102
+    assert encoding_a[1] == 11
+
+    encoding_b = encode_many([1, "Li"], "mod_pettifor")
+    assert encoding_a[0] == 102
+    assert encoding_a[1] == 11
+
+    encoding_b = encode_many([1, 3], "mod_pettifor")
+    assert encoding_a[0] == 102
+    assert encoding_a[1] == 11

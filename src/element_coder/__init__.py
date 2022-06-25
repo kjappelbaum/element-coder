@@ -2,6 +2,6 @@
 
 """Encode chemical elements numerically and decode numerical representations of elements."""
 from .decode import decode
-from .encode import encode
+from .encode import encode, encode_many
 
-__all__ = ("encode", "decode")
+__all__ = ("encode", "encode_many", "decode")
