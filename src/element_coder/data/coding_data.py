@@ -76,10 +76,11 @@ def get_coding_dict(key: str) -> dict:
     """
     key = key.lower()
     if not key in _PROPERTY_KEYS:
-        key = get_close_matches(key, _PROPERTY_KEYS, n=1)[0]
-        logger.warning(f"No matching key found for {key}. Falling back to closest match {key}.")
-        cd = _load_coding_data(key)
-    cd = _load_coding_data(key)
+        keymatch = get_close_matches(key, _PROPERTY_KEYS, n=1)[0]
+        logger.warning(f"No matching key found for {key}. Falling back to closest match {keymatch}.")
+    else: 
+        keymatch = key
+    cd = _load_coding_data(keymatch)
 
     if len(cd) != len(np.unique(cd[:])):
         logger.warning(
