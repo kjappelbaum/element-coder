@@ -1,14 +1,14 @@
 """We represent each possible elemental encoding as a `sciris` dict. This allows for more convenient bi-directional lookup.
 """
 
+import json
 import os
+from collections import OrderedDict
 from difflib import get_close_matches
 from functools import lru_cache
 
 import numpy as np
-from collections import OrderedDict
 from loguru import logger
-import json
 
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 _CODING_DATA_DIR = os.path.join(_THIS_DIR, "raw")

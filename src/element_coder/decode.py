@@ -57,7 +57,7 @@ def decode(
     logger.debug(
         f"Matching distance: {distance[matching_index]}, mean distance: {distance.mean()}, std: {distance.std()}"
     )
-    print(matching_index)
+
     return list(coding_dict.keys())[matching_index]
 
 
@@ -95,5 +95,7 @@ def decode_many(
     logger.debug(
         f"Matching distance: {distance[matching_index]}, mean distance: {distance.mean()}, std: {distance.std()}"
     )
-    print(matching_index)
-    return list(coding_dict.keys())[matching_index]
+
+    keys = list(coding_dict.keys())
+
+    return [keys[i] for i in matching_index]
