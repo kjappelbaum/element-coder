@@ -6,8 +6,9 @@ from difflib import get_close_matches
 from functools import lru_cache
 
 import numpy as np
-import sciris as sc
+from collections import OrderedDict
 from loguru import logger
+import json
 
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 _CODING_DATA_DIR = os.path.join(_THIS_DIR, "raw")
@@ -57,10 +58,15 @@ _PROPERTY_KEYS = set(list(CODING_FILES.keys()))
 __all__ = ("get_coding_dict",)
 
 
-def _load_coding_data(property_key: str) -> sc.odict:
+def _load_json(file):
+    with open(file, "r") as f:
+        return json.load(f)
+
+
+def _load_coding_data(property_key: str) -> OrderedDict:
     """Load the coding data for a given property key."""
     file = os.path.join(_CODING_DATA_DIR, CODING_FILES[property_key])
-    return sc.odict(sc.loadjson(file))
+    return OrderedDict(_load_json(file))
 
 
 @lru_cache()
@@ -81,7 +87,7 @@ def get_coding_dict(key: str) -> dict:
         cd = _load_coding_data(key)
     cd = _load_coding_data(key)
 
-    if len(cd) != len(np.unique(cd[:])):
+    if len(cd) != len(np.unique(cd.values())):
         logger.warning(
             f"This coding is not unique for certain elements. This will cause problems when decoding."
         )
