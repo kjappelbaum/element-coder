@@ -74,4 +74,4 @@ def encode_many(elements: Iterable[Union[Element, str, int]], property: str) -> 
     if not all(isinstance(item, str) for item in elements):
         elements = [_get_element_symbol(item) for item in elements]
 
-    return get_coding_dict(property)[elements]
+    return [get_coding_dict(property)[element] for element in elements]

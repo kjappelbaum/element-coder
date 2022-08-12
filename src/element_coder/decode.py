@@ -9,6 +9,17 @@ from scipy.spatial.distance import cdist
 from .data.coding_data import get_coding_dict
 
 
+def _get_coding_data(coding_dict):
+    try:
+        coding_data = np.fromiter(coding_dict.values(), dtype=float)
+    except ValueError:
+        coding_data = np.vstack(coding_dict.values())
+    coding_shape = coding_data.shape
+    if len(coding_shape) == 1:
+        coding_data = coding_data.reshape(-1, 1)
+    return coding_data
+
+
 def decode(
     encoding: Union[int, float, np.ndarray, list, tuple],
     property: str,
@@ -40,17 +51,14 @@ def decode(
         encoding = np.array(encoding)
 
     coding_dict = get_coding_dict(property)
-    coding_data = coding_dict[:]
-    coding_shape = coding_data.shape
-    if len(coding_shape) == 1:
-        coding_data = coding_data.reshape(-1, 1)
-
+    coding_data = _get_coding_data(coding_dict)
     distance = cdist(coding_data, encoding.reshape(1, -1), metric=metric)
     matching_index = distance.argmin()
     logger.debug(
         f"Matching distance: {distance[matching_index]}, mean distance: {distance.mean()}, std: {distance.std()}"
     )
-    return coding_dict.keys()[matching_index]
+
+    return list(coding_dict.keys())[matching_index]
 
 
 def decode_many(
@@ -81,14 +89,13 @@ def decode_many(
     encoding = np.array(encoding)
 
     coding_dict = get_coding_dict(property)
-    coding_data = coding_dict[:]
-    coding_shape = coding_data.shape
-    if len(coding_shape) == 1:
-        coding_data = coding_data.reshape(-1, 1)
-
+    coding_data = _get_coding_data(coding_dict)
     distance = cdist(coding_data, encoding.reshape(-1, coding_data.shape[1]), metric=metric)
     matching_index = distance.argmin(axis=0)
     logger.debug(
         f"Matching distance: {distance[matching_index]}, mean distance: {distance.mean()}, std: {distance.std()}"
     )
-    return np.array(coding_dict.keys())[matching_index]
+
+    keys = list(coding_dict.keys())
+
+    return [keys[i] for i in matching_index]
