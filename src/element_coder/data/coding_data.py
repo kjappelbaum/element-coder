@@ -15,6 +15,7 @@ _CODING_DATA_DIR = os.path.join(_THIS_DIR, "raw")
 
 CODING_FILES = {
     "x": "x.json",
+    "electronegativity": "x.json",
     "atomic": "atomic.json",
     "atomic_radius_calculated": "atomic_radius_calculated.json",
     "boiling_point": "boiling_point.json",
@@ -80,10 +81,11 @@ def get_coding_dict(key: str) -> dict:
     Returns:
         dict: property dictionary
     """
+    input_key = key
     key = key.lower()
     if not key in _PROPERTY_KEYS:
         key = get_close_matches(key, _PROPERTY_KEYS, n=1)[0]
-        logger.warning(f"No matching key found for {key}. Falling back to closest match {key}.")
+        logger.warning(f"No matching key found for {input_key}. Falling back to closest match {key}.")
         cd = _load_coding_data(key)
     cd = _load_coding_data(key)
 
