@@ -15,6 +15,7 @@ _CODING_DATA_DIR = os.path.join(_THIS_DIR, "raw")
 
 CODING_FILES = {
     "x": "x.json",
+    "electronegativity": "x.json",
     "atomic": "atomic.json",
     "atomic_radius_calculated": "atomic_radius_calculated.json",
     "boiling_point": "boiling_point.json",
