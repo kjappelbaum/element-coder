@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Testing the utils module."""
 from pymatgen.core import Element
 

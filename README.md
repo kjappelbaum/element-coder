@@ -5,7 +5,7 @@
 -->
 
 <h1 align="center">
-  element_coder 
+  element_coder
 </h1>
 
 <p align="center">
@@ -13,7 +13,7 @@
         <img alt="Tests" src="https://github.com/kjappelbaum/element-coder/workflows/Tests/badge.svg" />
     </a>
     <a href="https://github.com/cthoyt/cookiecutter-python-package">
-        <img alt="Cookiecutter template from @cthoyt" src="https://img.shields.io/badge/Cookiecutter-python--package-yellow" /> 
+        <img alt="Cookiecutter template from @cthoyt" src="https://img.shields.io/badge/Cookiecutter-python--package-yellow" />
     </a>
     <a href="https://pypi.org/project/element_coder">
         <img alt="PyPI" src="https://img.shields.io/pypi/v/element_coder" />
@@ -37,7 +37,7 @@ Encode chemical elements numerically and decode numerical representations of ele
 ## 💪 Getting Started
 
 ```python
-from element_coder import encode, decode 
+from element_coder import encode, decode
 
 decode(encode('Si', 'mod_pettifor'), 'mod_pettifor')
 >'Si'
@@ -90,17 +90,17 @@ $ pip install -e .
 ```
 
 ## Background
-For some applications (of ML in chemistry) elements must be numerically encoded. There are many libraries that do that. For most applications, even [pymatgen](www.pymatgen.org) can get the job done: 
+For some applications (of ML in chemistry) elements must be numerically encoded. There are many libraries that do that. For most applications, even [pymatgen](www.pymatgen.org) can get the job done:
 
 ```python
 from pymatgen.core import Element
-def encode_element(element: Element, property: str): 
+def encode_element(element: Element, property: str):
     return getattr(element, property)
 ```
 
-However, this code has some issues, wherefore there are many other libraries that attempt to solve this issue including [mendeleev](https://github.com/lmmentel/mendeleev), [elementy](https://github.com/Robert-Forrest/elementy), [EIMD](https://github.com/lrcfmd/ElMD). However, 
+However, this code has some issues, wherefore there are many other libraries that attempt to solve this issue including [mendeleev](https://github.com/lmmentel/mendeleev), [elementy](https://github.com/Robert-Forrest/elementy), [EIMD](https://github.com/lrcfmd/ElMD). However,
 
-* none of these libraries supported all the properties I was interested in 
+* none of these libraries supported all the properties I was interested in
 * none of these libraries supported decoding of descriptors into Elements.
 
 ## 👐 Contributing
@@ -150,7 +150,7 @@ This package was created with [@audreyfeldroy](https://github.com/audreyfeldroy)
 <details>
   <summary>See developer instrutions</summary>
 
-  
+
 The final section of the README is for if you want to get involved by making a code contribution.
 
 ### ❓ Testing

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """We represent each possible elemental encoding as a `sciris` dict. This allows for more convenient bi-directional lookup.
 """
 
@@ -85,7 +86,9 @@ def get_coding_dict(key: str) -> dict:
     key = key.lower()
     if not key in _PROPERTY_KEYS:
         key = get_close_matches(key, _PROPERTY_KEYS, n=1)[0]
-        logger.warning(f"No matching key found for {input_key}. Falling back to closest match {key}.")
+        logger.warning(
+            f"No matching key found for {input_key}. Falling back to closest match {key}."
+        )
         cd = _load_coding_data(key)
     cd = _load_coding_data(key)
 
