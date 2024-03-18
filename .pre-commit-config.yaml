@@ -4,7 +4,7 @@ default_language_version:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.5.0
     hooks:
       - id: check-executables-have-shebangs
       - id: fix-encoding-pragma
@@ -19,34 +19,34 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/jorisroovers/gitlint
-    rev: v0.18.0
+    rev: v0.19.1
     hooks:
       - id: gitlint
 
   - repo: https://github.com/pycqa/isort
-    rev: 5.11.4
+    rev: 5.13.2
     hooks:
       - id: isort
 
   - repo: https://github.com/psf/black
-    rev: 22.12.0
+    rev: 24.3.0
     hooks:
       - id: black
 
   - repo: https://github.com/PyCQA/flake8
-    rev: 6.0.0
+    rev: 7.0.0
     hooks:
       - id: flake8
 
   - repo: https://github.com/pycqa/bandit
-    rev: 1.7.4
+    rev: 1.7.8
     hooks:
       - id: bandit
         # Bandit does not need to run on test code
         exclude: tests/*
 
   - repo: https://github.com/pycqa/pydocstyle
-    rev: 6.2.0
+    rev: 6.3.0
     hooks:
       - id: pydocstyle
 
