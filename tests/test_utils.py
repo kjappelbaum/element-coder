@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Testing the utils module."""
+
 from pymatgen.core import Element
 
 from element_coder.utils import get_range
