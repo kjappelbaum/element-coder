@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Encode chemical elements numerically and decode numerical representations of elements."""
+
 from loguru import logger
 
 from .decode import decode, decode_many
