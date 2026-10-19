@@ -13,7 +13,6 @@ later, but that will cause problems--the code will get executed twice:
 .. seealso:: https://click.palletsprojects.com/en/7.x/setuptools/#setuptools-integration
 """
 
-
 import click
 
 from .data.coding_data import _PROPERTY_KEYS
