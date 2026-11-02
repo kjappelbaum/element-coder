@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Testing that the encoded input can be decoded into the input."""
+
 from typing import Iterable
 
 import numpy as np

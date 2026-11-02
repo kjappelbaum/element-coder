@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-"""We represent each possible elemental encoding as a `sciris` dict. This allows for more convenient bi-directional lookup.
-"""
+"""We represent each possible elemental encoding as a `sciris` dict. This allows for more convenient bi-directional lookup."""
 
 import json
 import os
