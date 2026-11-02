@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Numerically encode an Element."""
+
 from typing import Iterable, List, Union
 
 import numpy as np
