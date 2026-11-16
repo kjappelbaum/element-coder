@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Decode an elemental encoding."""
+
 from typing import Callable, Union
 
 import numpy as np
